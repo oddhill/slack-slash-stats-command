@@ -1,10 +1,7 @@
 <?php
 // Routes
 
-$app->get('/[{name}]', function ($request, $response, $args) {
-    // Sample log message
-    $this->logger->info("Slim-Skeleton '/' route");
-
-    // Render index view
-    return $this->renderer->render($response, 'index.phtml', $args);
+$app->post('/', function (\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
+    $post = $request->getParsedBody();
+    $this->logger->info(serialize($post));
 });
